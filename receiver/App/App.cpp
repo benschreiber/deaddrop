@@ -7,8 +7,6 @@
 
 #include "../receiver.h"
 
-#define FAKE 127
-
 /* Global EID shared by multiple threads */
 sgx_enclave_id_t global_eid = 0;
 

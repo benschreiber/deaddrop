@@ -3,9 +3,9 @@
 #include <inttypes.h>
 #include "sender.hpp"
 
-#define RDSEED_COUNT (1 << 12)
-#define RDSEED_COUNT_FINE (1 << 8)
-#define TIMING_FACTOR 500
+#define RDSEED_COUNT (1 << 10)
+#define RDSEED_COUNT_FINE (1 << 4)
+#define TIMING_FACTOR 16
 
 static uint64_t pulse_cycles = 0;
 

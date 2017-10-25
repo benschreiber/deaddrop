@@ -8,7 +8,7 @@
 
 #define RDSEED_COUNT_FINE (1 << 8)
 #define RDSEED_COUNT_THRESHOLD (1 << 23)
-#define TIMING_FACTOR 500
+#define TIMING_FACTOR 16
 
 double success_rate = 0.0;
 double threshold = 0.0;

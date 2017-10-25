@@ -48,6 +48,7 @@ typedef struct ms_ocall_result_t {
 
 static sgx_status_t SGX_CDECL sgx_decrypt_msg(void* pms)
 {
+	CHECK_REF_POINTER(pms, sizeof(ms_decrypt_msg_t));
 	ms_decrypt_msg_t* ms = SGX_CAST(ms_decrypt_msg_t*, pms);
 	sgx_status_t status = SGX_SUCCESS;
 	uint8_t* _tmp_buf = ms->ms_buf;
@@ -55,7 +56,6 @@ static sgx_status_t SGX_CDECL sgx_decrypt_msg(void* pms)
 	size_t _len_buf = _tmp_len;
 	uint8_t* _in_buf = NULL;
 
-	CHECK_REF_POINTER(pms, sizeof(ms_decrypt_msg_t));
 	CHECK_UNIQUE_POINTER(_tmp_buf, _len_buf);
 
 	if (_tmp_buf != NULL) {
@@ -79,6 +79,7 @@ err:
 
 static sgx_status_t SGX_CDECL sgx_seal(void* pms)
 {
+	CHECK_REF_POINTER(pms, sizeof(ms_seal_t));
 	ms_seal_t* ms = SGX_CAST(ms_seal_t*, pms);
 	sgx_status_t status = SGX_SUCCESS;
 	uint8_t* _tmp_plaintext = ms->ms_plaintext;
@@ -90,7 +91,6 @@ static sgx_status_t SGX_CDECL sgx_seal(void* pms)
 	size_t _len_sealed_data = _tmp_sealed_size;
 	sgx_sealed_data_t* _in_sealed_data = NULL;
 
-	CHECK_REF_POINTER(pms, sizeof(ms_seal_t));
 	CHECK_UNIQUE_POINTER(_tmp_plaintext, _len_plaintext);
 	CHECK_UNIQUE_POINTER(_tmp_sealed_data, _len_sealed_data);
 
@@ -124,6 +124,7 @@ err:
 
 static sgx_status_t SGX_CDECL sgx_unseal(void* pms)
 {
+	CHECK_REF_POINTER(pms, sizeof(ms_unseal_t));
 	ms_unseal_t* ms = SGX_CAST(ms_unseal_t*, pms);
 	sgx_status_t status = SGX_SUCCESS;
 	sgx_sealed_data_t* _tmp_sealed_data = ms->ms_sealed_data;
@@ -135,7 +136,6 @@ static sgx_status_t SGX_CDECL sgx_unseal(void* pms)
 	size_t _len_plaintext = _tmp_plaintext_len;
 	uint8_t* _in_plaintext = NULL;
 
-	CHECK_REF_POINTER(pms, sizeof(ms_unseal_t));
 	CHECK_UNIQUE_POINTER(_tmp_sealed_data, _len_sealed_data);
 	CHECK_UNIQUE_POINTER(_tmp_plaintext, _len_plaintext);
 
