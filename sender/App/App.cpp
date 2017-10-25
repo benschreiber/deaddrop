@@ -29,6 +29,8 @@ int main(int argc, char const *argv[]) {
         return 1;
     }
 
+	printf("Please type a message.\n");
+
 	init();
 
 	while (true) {
