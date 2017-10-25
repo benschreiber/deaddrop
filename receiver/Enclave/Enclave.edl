@@ -1,0 +1,14 @@
+enclave {
+    from "Sealing/Sealing.edl" import *;
+
+    trusted {
+        /* define ECALLs here. */
+		public void decrypt_msg([in, out, size=len] uint8_t* buf, size_t len);
+    };
+
+    untrusted {
+        /* define OCALLs here. */
+        void ocall_print([in, string]const char* str);
+		void ocall_result([in, string]uint8_t* cipher);
+    };
+};
